@@ -2,55 +2,27 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/12.3.0/firebas
 
 import {
     getAuth,
-    signInWithEmailAndPassword,
-    onAuthStateChanged
+    signInWithEmailAndPassword
 } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-auth.js";
 
-import {
-    getFirestore,
-    doc,
-    getDoc
-} from "https://www.gstatic.com/firebasejs/12.3.0/firebase-firestore.js";
-
-
-// ======================================
-// ASDDW SUPERVISION
-// FIREBASE CONFIGURATION
-// ======================================
 
 const firebaseConfig = {
-
     apiKey: "AIzaSyACqvP2NL14qJYGaX0ZPjriGiNkZ8yR6Vg",
-
     authDomain: "asddw-supervision.firebaseapp.com",
-
     projectId: "asddw-supervision",
-
     storageBucket: "asddw-supervision.firebasestorage.app",
-
     messagingSenderId: "440592118508",
-
     appId: "1:440592118508:web:6d369f18c2ad6886c2abc9",
-
     measurementId: "G-6TEB99B7WG"
 };
 
-
-// Initialize Firebase
 
 const app = initializeApp(firebaseConfig);
 
 const auth = getAuth(app);
 
-const db = getFirestore(app);
 
-
-// ======================================
-// ELEMENTS
-// ======================================
-
-const loginForm =
-    document.getElementById("loginForm");
+const loginForm = document.getElementById("loginForm");
 
 const passwordInput =
     document.getElementById("password");
@@ -65,9 +37,7 @@ const loginMessage =
     document.getElementById("loginMessage");
 
 
-// ======================================
-// PASSWORD SHOW / HIDE
-// ======================================
+/* PASSWORD SHOW / HIDE */
 
 passwordToggle.addEventListener("click", function () {
 
@@ -84,14 +54,13 @@ passwordToggle.addEventListener("click", function () {
 
         this.innerHTML =
             '<i class="fa-regular fa-eye"></i>';
+
     }
 
 });
 
 
-// ======================================
-// LOGIN
-// ======================================
+/* LOGIN */
 
 loginForm.addEventListener("submit", async function (event) {
 
@@ -102,13 +71,13 @@ loginForm.addEventListener("submit", async function (event) {
         document.getElementById("email").value.trim();
 
     const password =
-        passwordInput.value.trim();
+        passwordInput.value;
 
 
     if (!email || !password) {
 
         showMessage(
-            "Please enter your email and password."
+            "Email and password are required."
         );
 
         return;
@@ -117,94 +86,20 @@ loginForm.addEventListener("submit", async function (event) {
 
     try {
 
-        showMessage("Signing in...", "loading");
-
-
-        const userCredential =
-            await signInWithEmailAndPassword(
-                auth,
-                email,
-                password
-            );
-
-
-        const user =
-            userCredential.user;
-
-
-        console.log(
-            "Firebase User:",
-            user.uid
+        showMessage(
+            "Signing in...",
+            "loading"
         );
 
 
-        // Get user profile from Firestore
-
-        const userRef =
-            doc(db, "users", user.uid);
-
-        const userSnap =
-            await getDoc(userRef);
-
-
-        if (!userSnap.exists()) {
-
-            showMessage(
-                "User profile not found. Please contact your administrator."
-            );
-
-            await auth.signOut();
-
-            return;
-        }
-
-
-        const userData =
-            userSnap.data();
-
-
-        // Organization ID
-
-        const organizationId =
-            userData.organizationId;
-
-
-        // User Role
-
-        const role =
-            userData.role;
-
-
-        console.log(
-            "Organization:",
-            organizationId
-        );
-
-        console.log(
-            "Role:",
-            role
+        await signInWithEmailAndPassword(
+            auth,
+            email,
+            password
         );
 
 
-        // Save login information locally
-
-        sessionStorage.setItem(
-            "userId",
-            user.uid
-        );
-
-        sessionStorage.setItem(
-            "organizationId",
-            organizationId
-        );
-
-        sessionStorage.setItem(
-            "role",
-            role
-        );
-
-
-        // Temporary dashboard redirect
+        /* LOGIN SUCCESS */
 
         window.location.href =
             "dashboard.html";
@@ -214,66 +109,30 @@ loginForm.addEventListener("submit", async function (event) {
 
         console.error(error);
 
-
-        let message =
-            "Login failed. Please try again.";
-
-
-        if (error.code === "auth/invalid-credential") {
-
-            message =
-                "Incorrect email or password.";
-
-        }
-
-        else if (error.code === "auth/user-not-found") {
-
-            message =
-                "No account found with this email.";
-
-        }
-
-        else if (error.code === "auth/wrong-password") {
-
-            message =
-                "Incorrect password.";
-
-        }
-
-        else if (error.code === "auth/too-many-requests") {
-
-            message =
-                "Too many attempts. Please try again later.";
-
-        }
-
-
-        showMessage(message);
+        showMessage(
+            "Incorrect email or password."
+        );
 
     }
 
 });
 
 
-// ======================================
-// BIOMETRIC / PASSKEY
-// ======================================
+/* FINGERPRINT */
 
 biometricBtn.addEventListener(
     "click",
-    async function () {
+    function () {
 
         showMessage(
-            "Fingerprint / Passkey will be connected after the main login system is working."
+            "Fingerprint / Passkey will be added after login is working."
         );
 
     }
 );
 
 
-// ======================================
-// FORGOT PASSWORD
-// ======================================
+/* FORGOT PASSWORD */
 
 document
     .getElementById("forgotPassword")
@@ -284,24 +143,20 @@ document
             event.preventDefault();
 
             showMessage(
-                "Password recovery will be connected next."
+                "Password recovery will be added soon."
             );
 
         }
     );
 
 
-// ======================================
-// MESSAGE
-// ======================================
+/* MESSAGE */
 
 function showMessage(message, type = "error") {
 
-    loginMessage.textContent =
-        message;
+    loginMessage.textContent = message;
 
-    loginMessage.style.display =
-        "block";
+    loginMessage.style.display = "block";
 
 
     if (type === "loading") {
@@ -319,24 +174,7 @@ function showMessage(message, type = "error") {
 
         loginMessage.style.color =
             "#dc2626";
+
     }
 
 }
-
-
-// ======================================
-// AUTH STATE
-// ======================================
-
-onAuthStateChanged(auth, function (user) {
-
-    if (user) {
-
-        console.log(
-            "User already logged in:",
-            user.email
-        );
-
-    }
-
-});
