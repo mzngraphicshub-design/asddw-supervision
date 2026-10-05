@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Operators | ASDDW Supervision</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css">
+
+    <link rel="stylesheet" href="operators.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="brand">
+            <div class="brand-icon">
+                <i class="fa-solid fa-shield-halved"></i>
+            </div>
+
+            <div>
+                <h2>ASDDW</h2>
+                <span>SUPERVISION TEAM</span>
+            </div>
+        </div>
+
+
+        <nav>
+
+            <a href="dashboard.html">
+                <i class="fa-solid fa-grid-2"></i>
+                Dashboard
+            </a>
+
+            <a href="operators.html" class="active">
+                <i class="fa-solid fa-users"></i>
+                Operators
+            </a>
+
+            <a href="#">
+                <i class="fa-solid fa-location-dot"></i>
+                Booths
+            </a>
+
+            <a href="#">
+                <i class="fa-solid fa-arrows-rotate"></i>
+                Shifts
+            </a>
+
+            <a href="#">
+                <i class="fa-solid fa-clipboard-check"></i>
+                Daily Updates
+            </a>
+
+            <a href="#">
+                <i class="fa-solid fa-chart-column"></i>
+                Reports
+            </a>
+
+            <a href="#">
+                <i class="fa-solid fa-print"></i>
+                Print / PDF
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <a href="#">
+                <i class="fa-solid fa-gear"></i>
+                Settings
+            </a>
+
+            <button id="logoutBtn">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Logout
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN -->
+
+    <main class="main">
+
+        <header class="topbar">
+
+            <div class="title-area">
+
+                <span>MANAGEMENT</span>
+
+                <h1>Operators</h1>
+
+            </div>
+
+
+            <div class="profile">
+
+                <div class="avatar">
+                    SA
+                </div>
+
+                <div>
+                    <strong id="adminEmail">
+                        Admin
+                    </strong>
+
+                    <small>
+                        Administrator
+                    </small>
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <section class="content">
+
+
+            <!-- PAGE HEADER -->
+
+            <div class="page-header">
+
+                <div>
+
+                    <h2>
+                        Operator Management
+                    </h2>
+
+                    <p>
+                        Add and manage all booth operators.
+                    </p>
+
+                </div>
+
+
+                <button
+                    class="add-btn"
+                    id="openFormBtn">
+
+                    <i class="fa-solid fa-plus"></i>
+
+                    Add Operator
+
+                </button>
+
+            </div>
+
+
+            <!-- SEARCH -->
+
+            <div class="toolbar">
+
+                <div class="search">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Search operator name, phone or booth...">
+
+                </div>
+
+
+                <select id="shiftFilter">
+
+                    <option value="all">
+                        All Shifts
+                    </option>
+
+                    <option value="A">
+                        A Shift
+                    </option>
+
+                    <option value="B">
+                        B Shift
+                    </option>
+
+                </select>
+
+
+                <select id="statusFilter">
+
+                    <option value="all">
+                        All Status
+                    </option>
+
+                    <option value="active">
+                        Active
+                    </option>
+
+                    <option value="inactive">
+                        Inactive
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- TABLE -->
+
+            <div class="table-card">
+
+                <div class="table-header">
+
+                    <div>
+
+                        <span>
+                            OPERATOR LIST
+                        </span>
+
+                        <h3>
+                            All Operators
+                        </h3>
+
+                    </div>
+
+                    <strong id="operatorCount">
+                        0 Operators
+                    </strong>
+
+                </div>
+
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Operator
+                                </th>
+
+                                <th>
+                                    Contact
+                                </th>
+
+                                <th>
+                                    Booth
+                                </th>
+
+                                <th>
+                                    Shift
+                                </th>
+
+                                <th>
+                                    Duty Time
+                                </th>
+
+                                <th>
+                                    Status
+                                </th>
+
+                                <th>
+                                    Action
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="operatorTableBody">
+
+                            <tr>
+
+                                <td colspan="7">
+
+                                    <div class="empty">
+
+                                        <i class="fa-solid fa-users"></i>
+
+                                        <h3>
+                                            No operators yet
+                                        </h3>
+
+                                        <p>
+                                            Add your first operator
+                                            to get started.
+                                        </p>
+
+                                    </div>
+
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- ADD / EDIT MODAL -->
+
+<div
+    class="modal"
+    id="operatorModal">
+
+    <div class="modal-box">
+
+
+        <div class="modal-header">
+
+            <div>
+
+                <span>
+                    OPERATOR
+                </span>
+
+                <h2 id="modalTitle">
+                    Add Operator
+                </h2>
+
+            </div>
+
+
+            <button
+                class="close-btn"
+                id="closeModal">
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+        </div>
+
+
+        <form id="operatorForm">
+
+
+            <input
+                type="hidden"
+                id="operatorId">
+
+
+            <div class="form-grid">
+
+
+                <!-- NAME -->
+
+                <div class="field full">
+
+                    <label>
+                        Operator Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="operatorName"
+                        placeholder="Enter operator full name"
+                        required>
+
+                </div>
+
+
+                <!-- PHONE -->
+
+                <div class="field">
+
+                    <label>
+                        Contact Number
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="operatorPhone"
+                        placeholder="01XXXXXXXXX"
+                        required>
+
+                </div>
+
+
+                <!-- BOOTH -->
+
+                <div class="field">
+
+                    <label>
+                        Booth
+                    </label>
+
+                    <input
+                        type="text"
+                        id="operatorBooth"
+                        placeholder="Booth number / name"
+                        required>
+
+                </div>
+
+
+                <!-- SHIFT -->
+
+                <div class="field">
+
+                    <label>
+                        Shift
+                    </label>
+
+                    <select
+                        id="operatorShift"
+                        required>
+
+                        <option value="">
+                            Select Shift
+                        </option>
+
+                        <option value="A">
+                            A Shift
+                        </option>
+
+                        <option value="B">
+                            B Shift
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- START -->
+
+                <div class="field">
+
+                    <label>
+                        Duty Start
+                    </label>
+
+                    <input
+                        type="time"
+                        id="dutyStart"
+                        required>
+
+                </div>
+
+
+                <!-- END -->
+
+                <div class="field">
+
+                    <label>
+                        Duty End
+                    </label>
+
+                    <input
+                        type="time"
+                        id="dutyEnd"
+                        required>
+
+                </div>
+
+
+                <!-- STATUS -->
+
+                <div class="field">
+
+                    <label>
+                        Status
+                    </label>
+
+                    <select id="operatorStatus">
+
+                        <option value="active">
+                            Active
+                        </option>
+
+                        <option value="inactive">
+                            Inactive
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <div class="form-footer">
+
+                <button
+                    type="button"
+                    class="cancel-btn"
+                    id="cancelBtn">
+
+                    Cancel
+
+                </button>
+
+
+                <button
+                    type="submit"
+                    class="save-btn">
+
+                    <i class="fa-solid fa-check"></i>
+
+                    Save Operator
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<script
+    type="module"
+    src="operators.js">
+</script>
+
+</body>
+</html>
