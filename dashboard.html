@@ -9,10 +9,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
 
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css">
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css"
+    >
 
     <link rel="stylesheet" href="dashboard.css">
 </head>
@@ -21,9 +26,9 @@
 
 <div class="app">
 
-    <!-- SIDEBAR -->
+    <!-- ================= SIDEBAR ================= -->
 
-    <aside class="sidebar">
+    <aside class="sidebar" id="sidebar">
 
         <div class="sidebar-brand">
 
@@ -41,37 +46,83 @@
 
         <nav class="menu">
 
-            <a href="#" class="menu-item active">
-                <i class="fa-solid fa-grid-2"></i>
+            <!-- DASHBOARD -->
+
+            <a
+                href="dashboard.html"
+                class="menu-item active"
+            >
+                <i class="fa-solid fa-table-cells-large"></i>
                 <span>Dashboard</span>
             </a>
 
-            <a href="#" class="menu-item">
+
+            <!-- OPERATORS -->
+
+            <a
+                href="operators.html"
+                class="menu-item"
+            >
                 <i class="fa-solid fa-users"></i>
                 <span>Operators</span>
             </a>
 
-            <a href="#" class="menu-item">
+
+            <!-- BOOTHS -->
+
+            <a
+                href="#"
+                class="menu-item"
+                onclick="comingSoon(event, 'Booths')"
+            >
                 <i class="fa-solid fa-location-dot"></i>
                 <span>Booths</span>
             </a>
 
-            <a href="#" class="menu-item">
+
+            <!-- SHIFTS -->
+
+            <a
+                href="#"
+                class="menu-item"
+                onclick="comingSoon(event, 'Shifts')"
+            >
                 <i class="fa-solid fa-arrows-rotate"></i>
                 <span>Shifts</span>
             </a>
 
-            <a href="#" class="menu-item">
+
+            <!-- DAILY UPDATES -->
+
+            <a
+                href="#"
+                class="menu-item"
+                onclick="comingSoon(event, 'Daily Updates')"
+            >
                 <i class="fa-solid fa-clipboard-check"></i>
                 <span>Daily Updates</span>
             </a>
 
-            <a href="#" class="menu-item">
+
+            <!-- REPORTS -->
+
+            <a
+                href="#"
+                class="menu-item"
+                onclick="comingSoon(event, 'Reports')"
+            >
                 <i class="fa-solid fa-chart-column"></i>
                 <span>Reports</span>
             </a>
 
-            <a href="#" class="menu-item">
+
+            <!-- PRINT PDF -->
+
+            <a
+                href="#"
+                class="menu-item"
+                onclick="comingSoon(event, 'Print / PDF')"
+            >
                 <i class="fa-solid fa-print"></i>
                 <span>Print / PDF</span>
             </a>
@@ -79,19 +130,27 @@
         </nav>
 
 
+        <!-- SIDEBAR BOTTOM -->
+
         <div class="sidebar-bottom">
 
-            <a href="#" class="menu-item">
+            <a
+                href="#"
+                class="menu-item"
+                onclick="comingSoon(event, 'Settings')"
+            >
                 <i class="fa-solid fa-gear"></i>
                 <span>Settings</span>
             </a>
 
-            <button id="logoutBtn" class="logout-btn">
 
+            <button
+                id="logoutBtn"
+                class="logout-btn"
+                type="button"
+            >
                 <i class="fa-solid fa-right-from-bracket"></i>
-
                 <span>Logout</span>
-
             </button>
 
         </div>
@@ -99,45 +158,63 @@
     </aside>
 
 
-    <!-- MAIN -->
+    <!-- ================= MAIN ================= -->
 
     <main class="main">
+
 
         <!-- TOPBAR -->
 
         <header class="topbar">
 
-            <button class="mobile-menu" id="mobileMenu">
-                <i class="fa-solid fa-bars"></i>
-            </button>
+            <div class="topbar-left">
 
-            <div class="page-title">
+                <button
+                    id="mobileMenu"
+                    class="mobile-menu"
+                    type="button"
+                >
+                    <i class="fa-solid fa-bars"></i>
+                </button>
 
-                <span>OVERVIEW</span>
 
-                <h1>Dashboard</h1>
+                <div class="page-title">
+
+                    <span>OVERVIEW</span>
+
+                    <h1>Dashboard</h1>
+
+                </div>
 
             </div>
 
 
             <div class="topbar-right">
 
-                <button class="notification-btn">
+                <button
+                    class="notification-btn"
+                    type="button"
+                >
                     <i class="fa-regular fa-bell"></i>
+
                     <span></span>
                 </button>
 
 
                 <div class="profile">
 
-                    <div class="profile-avatar">
+                    <div
+                        class="profile-avatar"
+                        id="profileAvatar"
+                    >
                         SA
                     </div>
+
 
                     <div class="profile-info">
 
                         <strong id="adminName">
-                            Sujon Admin
+                            Admin
                         </strong>
 
                         <small>
@@ -145,6 +222,7 @@
                         </small>
 
                     </div>
+
 
                     <i class="fa-solid fa-chevron-down"></i>
 
@@ -155,7 +233,7 @@
         </header>
 
 
-        <!-- CONTENT -->
+        <!-- ================= CONTENT ================= -->
 
         <section class="content">
 
@@ -171,7 +249,10 @@
                     </span>
 
                     <h2>
-                        Good to see you, <strong>Sujon!</strong>
+                        Good to see you,
+                        <strong id="welcomeName">
+                            Admin
+                        </strong>
                     </h2>
 
                     <p>
@@ -191,27 +272,37 @@
             </div>
 
 
-            <!-- STATS -->
+            <!-- ================= STATS ================= -->
 
             <div class="stats-grid">
 
 
-                <div class="stat-card">
+                <!-- OPERATORS -->
+
+                <div
+                    class="stat-card"
+                    onclick="window.location.href='operators.html'"
+                    style="cursor:pointer;"
+                >
 
                     <div class="stat-icon purple">
+
                         <i class="fa-solid fa-users"></i>
+
                     </div>
+
 
                     <div class="stat-info">
 
-                        <span>Total Operators</span>
+                        <span>
+                            Total Operators
+                        </span>
 
                         <strong id="totalOperators">
                             0
                         </strong>
 
                         <small>
-                            <i class="fa-solid fa-arrow-up"></i>
                             Active operators
                         </small>
 
@@ -220,15 +311,22 @@
                 </div>
 
 
+                <!-- BOOTHS -->
+
                 <div class="stat-card">
 
                     <div class="stat-icon blue">
+
                         <i class="fa-solid fa-location-dot"></i>
+
                     </div>
+
 
                     <div class="stat-info">
 
-                        <span>Total Booths</span>
+                        <span>
+                            Total Booths
+                        </span>
 
                         <strong id="totalBooths">
                             0
@@ -243,15 +341,22 @@
                 </div>
 
 
+                <!-- PRESENT -->
+
                 <div class="stat-card">
 
                     <div class="stat-icon green">
+
                         <i class="fa-solid fa-user-check"></i>
+
                     </div>
+
 
                     <div class="stat-info">
 
-                        <span>Present Today</span>
+                        <span>
+                            Present Today
+                        </span>
 
                         <strong id="presentToday">
                             0
@@ -266,15 +371,22 @@
                 </div>
 
 
+                <!-- PENDING -->
+
                 <div class="stat-card">
 
                     <div class="stat-icon orange">
+
                         <i class="fa-solid fa-clock"></i>
+
                     </div>
+
 
                     <div class="stat-info">
 
-                        <span>Pending Updates</span>
+                        <span>
+                            Pending Updates
+                        </span>
 
                         <strong id="pendingUpdates">
                             0
@@ -291,12 +403,12 @@
             </div>
 
 
-            <!-- TWO COLUMNS -->
+            <!-- ================= TWO COLUMNS ================= -->
 
             <div class="dashboard-grid">
 
 
-                <!-- TODAY'S SHIFT -->
+                <!-- SHIFT OVERVIEW -->
 
                 <div class="panel">
 
@@ -314,7 +426,12 @@
 
                         </div>
 
-                        <button class="view-btn">
+
+                        <button
+                            class="view-btn"
+                            type="button"
+                            onclick="comingSoon(event, 'Shift Overview')"
+                        >
                             View All
                         </button>
 
@@ -324,11 +441,14 @@
                     <div class="shift-list">
 
 
+                        <!-- A SHIFT -->
+
                         <div class="shift-row">
 
                             <div class="shift-icon shift-a">
                                 A
                             </div>
+
 
                             <div class="shift-details">
 
@@ -342,9 +462,10 @@
 
                             </div>
 
+
                             <div class="shift-count">
 
-                                <strong>
+                                <strong id="aShiftCount">
                                     0
                                 </strong>
 
@@ -357,11 +478,14 @@
                         </div>
 
 
+                        <!-- B SHIFT -->
+
                         <div class="shift-row">
 
                             <div class="shift-icon shift-b">
                                 B
                             </div>
+
 
                             <div class="shift-details">
 
@@ -375,9 +499,10 @@
 
                             </div>
 
+
                             <div class="shift-count">
 
-                                <strong>
+                                <strong id="bShiftCount">
                                     0
                                 </strong>
 
@@ -388,7 +513,6 @@
                             </div>
 
                         </div>
-
 
                     </div>
 
@@ -419,7 +543,13 @@
                     <div class="quick-actions">
 
 
-                        <button class="action-card">
+                        <!-- ADD OPERATOR -->
+
+                        <button
+                            class="action-card"
+                            type="button"
+                            onclick="window.location.href='operators.html'"
+                        >
 
                             <i class="fa-solid fa-user-plus"></i>
 
@@ -430,7 +560,13 @@
                         </button>
 
 
-                        <button class="action-card">
+                        <!-- ADD BOOTH -->
+
+                        <button
+                            class="action-card"
+                            type="button"
+                            onclick="comingSoon(event, 'Add Booth')"
+                        >
 
                             <i class="fa-solid fa-location-dot"></i>
 
@@ -441,7 +577,13 @@
                         </button>
 
 
-                        <button class="action-card">
+                        <!-- MANAGE SHIFT -->
+
+                        <button
+                            class="action-card"
+                            type="button"
+                            onclick="comingSoon(event, 'Manage Shift')"
+                        >
 
                             <i class="fa-solid fa-clock"></i>
 
@@ -452,7 +594,13 @@
                         </button>
 
 
-                        <button class="action-card">
+                        <!-- REPORT -->
+
+                        <button
+                            class="action-card"
+                            type="button"
+                            onclick="comingSoon(event, 'Generate Report')"
+                        >
 
                             <i class="fa-solid fa-file-lines"></i>
 
@@ -462,7 +610,6 @@
 
                         </button>
 
-
                     </div>
 
                 </div>
@@ -470,7 +617,7 @@
             </div>
 
 
-            <!-- DAILY UPDATES -->
+            <!-- ================= DAILY UPDATES ================= -->
 
             <div class="panel updates-panel">
 
@@ -488,7 +635,12 @@
 
                     </div>
 
-                    <button class="view-btn">
+
+                    <button
+                        class="view-btn"
+                        type="button"
+                        onclick="comingSoon(event, 'Daily Updates')"
+                    >
                         View All
                     </button>
 
@@ -503,9 +655,11 @@
 
                     </div>
 
+
                     <h4>
                         No daily updates yet
                     </h4>
+
 
                     <p>
                         Operator updates will appear here
@@ -524,7 +678,30 @@
 </div>
 
 
-<script type="module" src="dashboard.js"></script>
+<!-- ================= SMALL HELPER ================= -->
+
+<script>
+
+function comingSoon(event, feature) {
+
+    event.preventDefault();
+
+    alert(
+        feature +
+        " will be connected in the next step."
+    );
+
+}
+
+</script>
+
+
+<!-- ================= FIREBASE DASHBOARD JS ================= -->
+
+<script
+    type="module"
+    src="dashboard.js">
+</script>
 
 </body>
 </html>
