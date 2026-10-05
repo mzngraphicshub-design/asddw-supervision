@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ASDDW Supervision | Dashboard</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css">
+
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+
+            <div class="brand-icon">
+                <i class="fa-solid fa-shield-halved"></i>
+            </div>
+
+            <div>
+                <h2>ASDDW</h2>
+                <span>SUPERVISION TEAM</span>
+            </div>
+
+        </div>
+
+
+        <nav class="menu">
+
+            <a href="#" class="menu-item active">
+                <i class="fa-solid fa-grid-2"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="#" class="menu-item">
+                <i class="fa-solid fa-users"></i>
+                <span>Operators</span>
+            </a>
+
+            <a href="#" class="menu-item">
+                <i class="fa-solid fa-location-dot"></i>
+                <span>Booths</span>
+            </a>
+
+            <a href="#" class="menu-item">
+                <i class="fa-solid fa-arrows-rotate"></i>
+                <span>Shifts</span>
+            </a>
+
+            <a href="#" class="menu-item">
+                <i class="fa-solid fa-clipboard-check"></i>
+                <span>Daily Updates</span>
+            </a>
+
+            <a href="#" class="menu-item">
+                <i class="fa-solid fa-chart-column"></i>
+                <span>Reports</span>
+            </a>
+
+            <a href="#" class="menu-item">
+                <i class="fa-solid fa-print"></i>
+                <span>Print / PDF</span>
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <a href="#" class="menu-item">
+                <i class="fa-solid fa-gear"></i>
+                <span>Settings</span>
+            </a>
+
+            <button id="logoutBtn" class="logout-btn">
+
+                <i class="fa-solid fa-right-from-bracket"></i>
+
+                <span>Logout</span>
+
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN -->
+
+    <main class="main">
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+            <button class="mobile-menu" id="mobileMenu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <div class="page-title">
+
+                <span>OVERVIEW</span>
+
+                <h1>Dashboard</h1>
+
+            </div>
+
+
+            <div class="topbar-right">
+
+                <button class="notification-btn">
+                    <i class="fa-regular fa-bell"></i>
+                    <span></span>
+                </button>
+
+
+                <div class="profile">
+
+                    <div class="profile-avatar">
+                        SA
+                    </div>
+
+                    <div class="profile-info">
+
+                        <strong id="adminName">
+                            Sujon Admin
+                        </strong>
+
+                        <small>
+                            Administrator
+                        </small>
+
+                    </div>
+
+                    <i class="fa-solid fa-chevron-down"></i>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- CONTENT -->
+
+        <section class="content">
+
+
+            <!-- WELCOME -->
+
+            <div class="welcome-card">
+
+                <div>
+
+                    <span class="welcome-label">
+                        WELCOME BACK
+                    </span>
+
+                    <h2>
+                        Good to see you, <strong>Sujon!</strong>
+                    </h2>
+
+                    <p>
+                        Here's what's happening with your
+                        supervision system today.
+                    </p>
+
+                </div>
+
+
+                <div class="welcome-icon">
+
+                    <i class="fa-solid fa-chart-line"></i>
+
+                </div>
+
+            </div>
+
+
+            <!-- STATS -->
+
+            <div class="stats-grid">
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon purple">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+
+                    <div class="stat-info">
+
+                        <span>Total Operators</span>
+
+                        <strong id="totalOperators">
+                            0
+                        </strong>
+
+                        <small>
+                            <i class="fa-solid fa-arrow-up"></i>
+                            Active operators
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon blue">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+
+                    <div class="stat-info">
+
+                        <span>Total Booths</span>
+
+                        <strong id="totalBooths">
+                            0
+                        </strong>
+
+                        <small>
+                            Registered booths
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon green">
+                        <i class="fa-solid fa-user-check"></i>
+                    </div>
+
+                    <div class="stat-info">
+
+                        <span>Present Today</span>
+
+                        <strong id="presentToday">
+                            0
+                        </strong>
+
+                        <small>
+                            Today's attendance
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon orange">
+                        <i class="fa-solid fa-clock"></i>
+                    </div>
+
+                    <div class="stat-info">
+
+                        <span>Pending Updates</span>
+
+                        <strong id="pendingUpdates">
+                            0
+                        </strong>
+
+                        <small>
+                            Need attention
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- TWO COLUMNS -->
+
+            <div class="dashboard-grid">
+
+
+                <!-- TODAY'S SHIFT -->
+
+                <div class="panel">
+
+                    <div class="panel-header">
+
+                        <div>
+
+                            <span class="panel-label">
+                                TODAY
+                            </span>
+
+                            <h3>
+                                Shift Overview
+                            </h3>
+
+                        </div>
+
+                        <button class="view-btn">
+                            View All
+                        </button>
+
+                    </div>
+
+
+                    <div class="shift-list">
+
+
+                        <div class="shift-row">
+
+                            <div class="shift-icon shift-a">
+                                A
+                            </div>
+
+                            <div class="shift-details">
+
+                                <strong>
+                                    A Shift
+                                </strong>
+
+                                <span>
+                                    Morning Duty
+                                </span>
+
+                            </div>
+
+                            <div class="shift-count">
+
+                                <strong>
+                                    0
+                                </strong>
+
+                                <span>
+                                    Operators
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="shift-row">
+
+                            <div class="shift-icon shift-b">
+                                B
+                            </div>
+
+                            <div class="shift-details">
+
+                                <strong>
+                                    B Shift
+                                </strong>
+
+                                <span>
+                                    Evening Duty
+                                </span>
+
+                            </div>
+
+                            <div class="shift-count">
+
+                                <strong>
+                                    0
+                                </strong>
+
+                                <span>
+                                    Operators
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+                <!-- QUICK ACTIONS -->
+
+                <div class="panel">
+
+                    <div class="panel-header">
+
+                        <div>
+
+                            <span class="panel-label">
+                                QUICK ACTIONS
+                            </span>
+
+                            <h3>
+                                Manage System
+                            </h3>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="quick-actions">
+
+
+                        <button class="action-card">
+
+                            <i class="fa-solid fa-user-plus"></i>
+
+                            <span>
+                                Add Operator
+                            </span>
+
+                        </button>
+
+
+                        <button class="action-card">
+
+                            <i class="fa-solid fa-location-dot"></i>
+
+                            <span>
+                                Add Booth
+                            </span>
+
+                        </button>
+
+
+                        <button class="action-card">
+
+                            <i class="fa-solid fa-clock"></i>
+
+                            <span>
+                                Manage Shift
+                            </span>
+
+                        </button>
+
+
+                        <button class="action-card">
+
+                            <i class="fa-solid fa-file-lines"></i>
+
+                            <span>
+                                Generate Report
+                            </span>
+
+                        </button>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- DAILY UPDATES -->
+
+            <div class="panel updates-panel">
+
+                <div class="panel-header">
+
+                    <div>
+
+                        <span class="panel-label">
+                            RECENT ACTIVITY
+                        </span>
+
+                        <h3>
+                            Daily Updates
+                        </h3>
+
+                    </div>
+
+                    <button class="view-btn">
+                        View All
+                    </button>
+
+                </div>
+
+
+                <div class="empty-state">
+
+                    <div class="empty-icon">
+
+                        <i class="fa-regular fa-clipboard"></i>
+
+                    </div>
+
+                    <h4>
+                        No daily updates yet
+                    </h4>
+
+                    <p>
+                        Operator updates will appear here
+                        once they start submitting their daily duty.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<script type="module" src="dashboard.js"></script>
+
+</body>
+</html>
