@@ -1,1 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>ASDDW Supervision | Login</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="login-page">
+
+    <section class="login-showcase">
+
+        <div class="brand">
+
+            <div class="brand-logo">
+                <i class="fa-solid fa-shield-halved"></i>
+            </div>
+
+            <div>
+                <h2>ASDDW</h2>
+                <span>SUPERVISION TEAM</span>
+            </div>
+
+        </div>
+
+        <div class="showcase-content">
+
+            <span class="eyebrow">
+                SUPERVISION CONTROL SYSTEM
+            </span>
+
+            <h1>
+                Manage your
+                <span>operations</span>
+                smarter.
+            </h1>
+
+            <p>
+                A secure multi-organization supervision platform
+                for operators, booths, shifts and daily activities.
+            </p>
+
+            <div class="feature-list">
+
+                <div class="feature">
+
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+
+                    <div>
+                        <strong>Operator Management</strong>
+                        <small>Manage every operator from one place.</small>
+                    </div>
+
+                </div>
+
+                <div class="feature">
+
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+
+                    <div>
+                        <strong>Booth & Shift Control</strong>
+                        <small>Monitor booth assignments and shifts.</small>
+                    </div>
+
+                </div>
+
+                <div class="feature">
+
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-fingerprint"></i>
+                    </div>
+
+                    <div>
+                        <strong>Secure Biometric Access</strong>
+                        <small>Use your device biometric when supported.</small>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="showcase-footer">
+            <span>© 2026 ASDDW Supervision Team</span>
+
+            <span>
+                <i class="fa-solid fa-circle"></i>
+                System Ready
+            </span>
+        </div>
+
+    </section>
+
+
+    <section class="login-panel">
+
+        <div class="login-box">
+
+            <div class="mobile-brand">
+
+                <div class="brand-logo">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+
+                <div>
+                    <h2>ASDDW</h2>
+                    <span>SUPERVISION TEAM</span>
+                </div>
+
+            </div>
+
+
+            <div class="login-heading">
+
+                <span>WELCOME BACK</span>
+
+                <h1>Sign in to your account</h1>
+
+                <p>
+                    Access your organization supervision dashboard.
+                </p>
+
+            </div>
+
+
+            <form id="loginForm">
+
+                <div class="input-group">
+
+                    <label for="email">
+                        Email or Username
+                    </label>
+
+                    <div class="input-wrapper">
+
+                        <i class="fa-regular fa-user"></i>
+
+                        <input
+                            id="email"
+                            type="text"
+                            placeholder="Enter your email or username"
+                            autocomplete="username"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="input-group">
+
+                    <div class="label-row">
+
+                        <label for="password">
+                            Password
+                        </label>
+
+                        <a href="#" id="forgotPassword">
+                            Forgot password?
+                        </a>
+
+                    </div>
+
+                    <div class="input-wrapper">
+
+                        <i class="fa-solid fa-lock"></i>
+
+                        <input
+                            id="password"
+                            type="password"
+                            placeholder="Enter your password"
+                            autocomplete="current-password"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            class="password-toggle"
+                            id="passwordToggle">
+
+                            <i class="fa-regular fa-eye"></i>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="remember-row">
+
+                    <label class="remember">
+
+                        <input type="checkbox" id="remember">
+
+                        <span></span>
+
+                        Remember me
+
+                    </label>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="login-btn">
+
+                    <span>Sign In</span>
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </button>
+
+            </form>
+
+
+            <div class="divider">
+                <span>OR</span>
+            </div>
+
+
+            <button
+                type="button"
+                class="biometric-btn"
+                id="biometricBtn">
+
+                <div class="biometric-icon">
+                    <i class="fa-solid fa-fingerprint"></i>
+                </div>
+
+                <div class="biometric-text">
+
+                    <strong>Use Fingerprint / Passkey</strong>
+
+                    <span>
+                        Sign in securely with your device
+                    </span>
+
+                </div>
+
+                <i class="fa-solid fa-chevron-right arrow"></i>
+
+            </button>
+
+
+            <div
+                class="login-message"
+                id="loginMessage">
+            </div>
+
+
+            <div class="security-note">
+
+                <i class="fa-solid fa-shield-halved"></i>
+
+                <span>
+                    Your account is protected with secure authentication.
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
